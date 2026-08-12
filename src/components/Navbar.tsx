@@ -53,6 +53,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleAuditLogs }) => {
 
   const unreadCount = notifications.filter(n => !n.is_read).length;
 
+  const UniqLogoBadge = ({ compact = false }: { compact?: boolean }) => (
+    <div className={`${compact ? 'h-10 w-28' : 'h-12 w-32 sm:h-14 sm:w-36'} flex items-center justify-center overflow-hidden rounded-xl bg-white p-1 shadow-sm`}>
+      <svg viewBox="0 0 220 120" className="block h-full w-full" preserveAspectRatio="xMidYMid meet" aria-label="UNIQ logo" role="img">
+        <g transform="translate(10 2)">
+          <text x="0" y="90" fill="#111827" fontSize="86" fontWeight="900" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="-8">
+            u
+          </text>
+          <circle cx="70" cy="30" r="9" fill="#1d4ed8" />
+          <text x="86" y="90" fill="#111827" fontSize="86" fontWeight="900" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="-8">
+            n
+          </text>
+          <circle cx="150" cy="30" r="9" fill="#ef4444" />
+          <text x="166" y="90" fill="#111827" fontSize="86" fontWeight="900" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="-8">
+            i
+          </text>
+          <circle cx="197" cy="30" r="9" fill="#10b981" />
+          <text x="212" y="90" fill="#111827" fontSize="86" fontWeight="900" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="-8">
+            q
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+
   return (
     <>
       <header className="border-b border-slate-200/80 bg-[linear-gradient(135deg,rgba(15,23,42,0.98),rgba(30,41,59,0.96),rgba(15,23,42,1))] text-white shadow-[0_18px_40px_rgba(15,23,42,0.18)]">
@@ -67,13 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleAuditLogs }) => {
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 via-amber-400 to-indigo-500 text-sm font-black text-slate-950 shadow-[0_12px_24px_rgba(251,146,60,0.35)]">
-                PY
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-300">Placement CRM</p>
-                <h1 className="text-xl font-black tracking-[-0.06em] text-white">PyCRM</h1>
-              </div>
+              <UniqLogoBadge />
             </div>
           </div>
 
@@ -212,13 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleAuditLogs }) => {
           >
             <div className="mb-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 via-amber-400 to-indigo-500 text-sm font-black text-slate-950">
-                  PY
-                </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">Menu</p>
-                  <h2 className="text-lg font-black text-white">PyCRM</h2>
-                </div>
+                <UniqLogoBadge compact />
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
