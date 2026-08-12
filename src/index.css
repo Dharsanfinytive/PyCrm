@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Academic Navy & Gold — soft indigo-tinted paper, navy ink, graduation-gold signal */
+  --color-bg-primary: #f5f7fc;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-hover: #eef1fa;
+
+  --color-text-primary: #182449;
+  --color-text-secondary: #4c5578;
+  --color-text-muted: #8891ac;
+
+  --color-accent-orange: #c8922c;
+  --color-accent-orange-hover: #a97a1f;
+  --color-accent-navy: #1c2c58;
+  --color-accent-navy-hover: #2b3f79;
+  --color-accent-green: #12876a;
+  --color-accent-green-hover: #0d6c54;
+  --color-accent-yellow: #b8862a;
+  --color-accent-yellow-hover: #966d20;
+
+  --color-border-primary: #dbe0f0;
+  --color-border-secondary: #e8ebf6;
+
+  --color-shadow-hard: rgba(24, 36, 73, 0.35);
+  --color-shadow-hard-soft: rgba(24, 36, 73, 0.12);
+}
+
+:root.dark {
+  /* Academic Navy & Gold Dark — deep midnight campus blue, warm gold signal */
+  --color-bg-primary: #0a1226;
+  --color-bg-secondary: #10182f;
+  --color-bg-card: #131c38;
+  --color-bg-hover: #1b2748;
+
+  --color-text-primary: #eef1fa;
+  --color-text-secondary: #b3bce0;
+  --color-text-muted: #6d78a3;
+
+  --color-accent-orange: #e0ab4c;
+  --color-accent-orange-hover: #eebd6c;
+  --color-accent-navy: #4b64b0;
+  --color-accent-navy-hover: #6280cc;
+  --color-accent-green: #2bbd93;
+  --color-accent-green-hover: #4ecfa9;
+  --color-accent-yellow: #dcae4a;
+  --color-accent-yellow-hover: #e9c06a;
+
+  --color-border-primary: #263561;
+  --color-border-secondary: #1c2848;
+
+  --color-shadow-hard: rgba(0, 0, 0, 0.55);
+  --color-shadow-hard-soft: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(168, 85, 247, 0.18), transparent 25%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 20%),
+    radial-gradient(circle at bottom center, rgba(251, 146, 60, 0.12), transparent 30%),
+    linear-gradient(135deg, #f8fbff 0%, #eef4ff 38%, #f5f3ff 100%);
+  color: var(--color-text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  background-attachment: fixed;
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 22%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 18%),
+    radial-gradient(circle at bottom center, rgba(168, 85, 247, 0.08), transparent 30%),
+    linear-gradient(135deg, #050b16 0%, #0b1324 32%, #111827 100%);
+  color: #f8fafc;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+label,
+span,
+p,
+div,
+li,
+th,
+td {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.text-text-primary,
+.text-text-secondary,
+.text-text-muted {
+  font-weight: 700 !important;
+}
+
+.text-text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.text-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Elevated card utility — soft rounded surface with a gentle floating shadow
+   instead of a hard offset "drawn in ink" block. */
+.glass-panel {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 8px 24px -8px var(--color-shadow-hard-soft);
+}
+
+.silver-card {
+  background: linear-gradient(135deg, rgba(231, 238, 255, 0.96), rgba(248, 250, 255, 0.94), rgba(255, 243, 220, 0.92), rgba(234, 228, 255, 0.85));
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  box-shadow: 0 18px 38px -22px rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.2s ease, box-shadow 0.22s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+
+.silver-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(200,146,44,0.4);
+  box-shadow: 0 26px 42px -22px rgba(28,44,88,0.24);
+  filter: brightness(1.03);
+}
+
+.silver-gradient-panel {
+  background: linear-gradient(135deg, rgba(240,245,255,0.96), rgba(228,235,252,0.9), rgba(255,246,222,0.88), rgba(240,233,255,0.8));
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  box-shadow: 0 18px 40px -24px rgba(15, 23, 42, 0.22);
+}
+
+.dark .silver-card,
+.dark .silver-gradient-panel {
+  --color-bg-hover: #1f2b3d;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border-primary: rgba(148, 163, 184, 0.22);
+
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96), rgba(30, 41, 59, 0.94), rgba(17, 24, 39, 0.94));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: var(--color-text-primary);
+  box-shadow: 0 20px 48px -26px rgba(2, 6, 23, 0.72);
+}
+
+.dark .silver-card:hover,
+.dark .silver-gradient-panel:hover {
+  transform: translateY(-3px);
+  border-color: rgba(214, 154, 72, 0.46);
+  box-shadow: 0 26px 52px -22px rgba(217, 154, 63, 0.26);
+  filter: brightness(1.05);
+}
+
+.dark .silver-card * ,
+.dark .silver-gradient-panel * {
+  color: inherit;
+}
+
+.dark .silver-card .text-slate-500,
+.dark .silver-gradient-panel .text-slate-500,
+.dark .silver-card .text-slate-600,
+.dark .silver-gradient-panel .text-slate-600,
+.dark .silver-card .text-slate-700,
+.dark .silver-gradient-panel .text-slate-700 {
+  color: #dfe7f5 !important;
+}
+
+.dark .silver-card .text-slate-400,
+.dark .silver-gradient-panel .text-slate-400,
+.dark .silver-card .text-slate-300,
+.dark .silver-gradient-panel .text-slate-300,
+.dark .silver-card .text-slate-500,
+.dark .silver-gradient-panel .text-slate-500 {
+  color: #c6d0e2 !important;
+}
+
+.silver-button-primary {
+  background: linear-gradient(135deg, rgba(86, 57, 28, 0.96), rgba(156, 108, 53, 0.92), rgba(214, 154, 72, 0.9));
+  color: #f8fafc;
+  border: 1px solid rgba(124, 86, 46, 0.55);
+  box-shadow: 0 12px 24px -16px rgba(120, 79, 32, 0.72);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.silver-button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -18px rgba(120, 79, 32, 0.82);
+  filter: brightness(1.03);
+}
+
+.silver-button-secondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(226, 232, 239, 0.9), rgba(240, 244, 250, 0.96));
+  color: #334155;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.silver-button-secondary:hover {
+  transform: translateY(-1px);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #4338ca;
+}
+
+.dark .glass-panel {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 8px 24px -8px var(--color-shadow-hard-soft);
+}
+
+/* Signature accent rule — a soft gold bar with rounded ends, used to mark
+   active/primary structure. */
+.accent-bar {
+  box-shadow: inset 3px 0 0 0 var(--color-accent-orange);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Page transitions */
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
